@@ -13,6 +13,9 @@ ENV SWAGGER_JSON "/app/swagger.json"
 ENV PORT 8080
 ENV BASE_URL ""
 
+# copy apidoc to folder
+COPY ./apidoc/* /usr/share/nginx/html/
+
 COPY ./docker/nginx.conf ./docker/cors.conf /etc/nginx/
 
 # copy swagger files to the `/js` folder
@@ -30,4 +33,3 @@ EXPOSE 8080
 
 CMD ["sh", "/usr/share/nginx/run.sh"]
 
-COPY ./apidoc/* /usr/share/nginx/html/
